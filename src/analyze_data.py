@@ -38,3 +38,7 @@ def num_summary(dataframe, numerical_col, plot=False):
 def target_summary_with_num(dataframe, target, numerical_col): #for numerical variables
 
     print(dataframe.groupby(target).agg({numerical_col: "mean"}), end="\n\n\n")
+
+
+def target_summary_with_cat(dataframe, target, categorical_col): #for categoric variables
+    print(pd.DataFrame({"OUTCOME_MEAN": dataframe.groupby(categorical_col)[target].mean()}), end="\n\n\n")
