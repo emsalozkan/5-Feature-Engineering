@@ -88,26 +88,39 @@ def missing_value_and_target(dataframe, target, na_columns):
 
 #6. Analyze outliers.
 
-def outlier_thr(dataframe, col_name, q1=0.05, q3=0.95):
+def outlier_thr(dataframe, col_name, q1=0.05, q3=0.95): #üst limit alt limit belirlenir
 
     quartile1 = dataframe[col_name].quantile(q1)
+
     quartile3 = dataframe[col_name].quantile(q3)
+
     interquantile_range = quartile3 - quartile1
+
     up_limit = quartile3 + 1.5 * interquantile_range
+
     low_limit = quartile1 - 1.5 * interquantile_range
+
     return low_limit, up_limit
 
-def check_outlier(dataframe, col_name):
-    low_limit, up_limit = outlier_thresholds(dataframe, col_name)
+def check_outlier(dataframe, col_name): #outlier olup olmadığının kontrolü yapılır
+
+    low_limit, up_limit = outlier_thr(dataframe, col_name)
+
     if dataframe[(dataframe[col_name] > up_limit) | (dataframe[col_name] < low_limit)].any(axis=None):
+
         return True
+
     else:
+
         return False
 
-#BASKILAMA YÖNTEMİ
+#BASKILAMA YÖNTEMİ ile aykırı değerler üst limit ve alt limit değerleri ile güncellenir.
 def replace_with_thresholds(dataframe, variable, q1=0.05, q3=0.95):
-    low_limit, up_limit = outlier_thresholds(dataframe, variable, q1=0.05, q3=0.95)
+
+    low_limit, up_limit = outlier_thr(dataframe, variable, q1=0.05, q3=0.95)
+
     dataframe.loc[(dataframe[variable] < low_limit), variable] = low_limit
+
     dataframe.loc[(dataframe[variable] > up_limit), variable] = up_limit
 
 def corr_variable(dataframe):

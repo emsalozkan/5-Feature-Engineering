@@ -27,15 +27,15 @@
            # Adım 2: Numerik ve kategorik değişkenleri yakalayınız.
            # Adım 3:  Numerik ve kategorik değişkenlerin analizini yapınız.
            # Adım 4: Hedef değişken analizi yapınız. (Kategorik değişkenlere göre hedef değişkenin ortalaması, hedef değişkene göre numerik değişkenlerin ortalaması)
-           # Adım 5: Aykırı gözlem analizi yapınız.
            # Adım 6: Eksik gözlem analizi yapınız.
+           # Adım 5: Aykırı gözlem analizi yapınız.
            # Adım 7: Korelasyon analizi yapınız.
 
 # GÖREV 2: FEATURE ENGINEERING
            # Adım 1:  Eksik ve aykırı değerler için gerekli işlemleri yapınız. Veri setinde eksik gözlem bulunmamakta ama Glikoz, Insulin vb.
            # değişkenlerde 0 değeri içeren gözlem birimleri eksik değeri ifade ediyor olabilir. Örneğin; bir kişinin glikoz veya insulin değeri
            # 0 olamayacaktır. Bu durumu dikkate alarak sıfır değerlerini ilgili değerlerde NaN olarak atama yapıp sonrasında eksik değerlere
-           # işlemleri uygulayabilirsiniz.
+           # işlemleri uygulayabilirsiniz. (görev1 de 5-6. adımlarda yer almaktadır.)
            # Adım 2: Yeni değişkenler oluşturunuz.
            # Adım 3:  Encoding işlemlerini gerçekleştiriniz.
            # Adım 4: Numerik değişkenler için standartlaştırma yapınız.
