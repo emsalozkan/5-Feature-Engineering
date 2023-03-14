@@ -13,8 +13,12 @@ import warnings
 warnings.simplefilter(action="ignore")
 
 
-def feature_importance_plot(model, features, num=len(X), save=False):
+def feature_importance_plot(model, features, num=None, save=False):
     
+    if num is None:
+        
+        num = len(features.columns)
+
     feature_imp = pd.DataFrame({'Value': model.feature_importances_, 'Feature': features.columns})
     
     print(feature_imp.sort_values("Value",ascending=False))
