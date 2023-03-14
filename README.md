@@ -9,7 +9,7 @@ in the <span style="color:blue">*load_export_data_nb.ipynb*</span> document and 
 
 
 **STUDY CASE 1- DIABETES**    
-***Steps of analyzing dataset***
+***Steps of analyzing dataset and train the model***
 >1. Examine the overall picture. <span style="color:blue">*(from examine_data import check_df)*</span> 
 >2. Classify the variables as numeric and categorical. <span style="color:blue">*(from classify_data import grab_col_names)*</span> 
 >3. Analyze numeric and categorical variables. <span style="color:blue">*(from analyze_data import cat_summary, num_summary)*</span> 
@@ -20,5 +20,7 @@ in the <span style="color:blue">*load_export_data_nb.ipynb*</span> document and 
 >8. Feature extraction <span style="color:blue">*(from extract_feature import set_insulin, set_age, set_BMI, set_Glucose, set_age_BMI, set_age_Glucose )*</span>
 >9. Encoding <span style="color:blue">*(from encoding import label_encoding, one_hot_encoding )*</span>
 >10. Feature Scaling <span style="color:blue">*(StandardScaler)*</span>
+>11. Train the model <span style="color:blue">*(RandomForestClassifier)*</span>
+>12. Feature importance <span style="color:blue">*(from feature_importance import feature_importance_plot)*</span>
 
 
