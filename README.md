@@ -18,6 +18,7 @@ in the <span style="color:blue">*load_export_data_nb.ipynb*</span> document and 
 >6. Analyze outliers. <span style="color:blue">*(from analyze_data import check_outlier, replace_with_thresholds, )*</span>
 >7. Analyze correlation. <span style="color:blue">*(from analyze_data import corr_variable )*</span>
 >8. Feature extraction <span style="color:blue">*(from extract_feature import set_insulin, set_age, set_BMI, set_Glucose, set_age_BMI, set_age_Glucose )*</span>
->9. Encoding <span style="color:blue">*(from encoding import label_encoding )*</span>
+>9. Encoding <span style="color:blue">*(from encoding import label_encoding, one_hot_encoding )*</span>
+>10. Feature Scaling <span style="color:blue">*(StandardScaler)*</span>
 
 
