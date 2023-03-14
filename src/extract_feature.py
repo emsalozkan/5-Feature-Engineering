@@ -38,13 +38,63 @@ def set_age(dataframe, col_name="Age"):
 
 
 # BMI 18,5 aşağısı underweight, 18.5 ile 24.9 arası normal, 24.9 ile 29.9 arası Overweight ve 30 üstü obez
-def set_BMI(dataframe, col_name="BMI"):
-
-    bin_edges = [0, 18.5, 24.9, 29.9, 100],
+def set_BMI(df, colname):
+    
+    bin_edges = [0, 18.5, 24.9, 29.9, 100]
+    
     bin_labels = ["Underweight", "Healthy", "Overweight", "Obese"]
+    
+    df['NEW_BMI'] = pd.cut(x=df[colname], bins=bin_edges, labels=bin_labels)
+    
+    return df
 
-    # apply the cut function to the "Height (cm)" column and create a new column "Height Category"
-    dataframe['NEW_BMI'] = dataframe[col_name].apply(lambda x: pd.cut(x, bins=bin_edges, labels=bin_labels))
+# Glukoz degerini kategorik değişkene çevirme
+def set_Glucose(df, colname):
+    
+    bin_edges = [0, 140, 200, 300]
+    
+    bin_labels = ["Normal", "Prediabetes", "Diabetes"]
+    
+    df['NEW_GLUCOSE'] = pd.cut(x=df[colname], bins=bin_edges, labels=bin_labels)
+    
+    return df
 
-    return dataframe
+
+# # Yaş ve beden kitle indeksini bir arada düşünerek kategorik değişken oluşturma 3 kırılım yakalandı
+def set_age_BMI(df, colname1="Age", colname2="BMI"):
+
+    if  df.loc[(df[colname2] < 18.5) & ((df[colname1] >= 21) & (df[colname1] < 50))]:
+
+        return "underweightmature"
+
+    elif  df.loc[(df[colname2] < 18.5) & (df[colname1] >= 50)]:
+        
+        return "underweightmature"
+
+    elif  df.loc[((df[colname2] >= 18.5) & (df[colname2] < 25)) & ((df[colname1] >= 21) & (df[colname1] < 50))]:
+        
+        return "healthymature" 
+
+    elif  df.loc[((df[colname2] >= 18.5) & (df[colname2] < 25)) & (df[colname1] >= 50)]:
+        
+        return "healthysenior"   
+
+    elif  df.loc[((df[colname2] >= 25) & (df[colname2] < 30)) & ((df[colname1] >= 21) & (df[colname1] < 50))]:
+        
+        return "overweightmature" 
+
+    elif  df.loc[((df[colname2] >= 25) & (df[colname2] < 30)) & (df[colname1] >= 50)]:
+        
+        return "overweightsenior" 
+
+    elif  df.loc[(df[colname2] > 18.5) & ((df[colname1] >= 21) & (df[colname1] < 50))] :
+        
+        return "obesemature" 
+    
+    elif  df.loc[(df[colname2] > 18.5) & (df[colname1] >= 50)] :
+        
+        return "obesesenior" 
+
+
+
 
