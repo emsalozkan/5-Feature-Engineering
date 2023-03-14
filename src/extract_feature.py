@@ -63,38 +63,76 @@ def set_Glucose(df, colname):
 # # Yaş ve beden kitle indeksini bir arada düşünerek kategorik değişken oluşturma 3 kırılım yakalandı
 def set_age_BMI(df, colname1="Age", colname2="BMI"):
 
-    if  df.loc[(df[colname2] < 18.5) & ((df[colname1] >= 21) & (df[colname1] < 50))]:
+    if (df[colname2] < 18.5) & ((df[colname1] >= 21) & (df[colname1] < 50)):
 
         return "underweightmature"
 
-    elif  df.loc[(df[colname2] < 18.5) & (df[colname1] >= 50)]:
+    elif (df[colname2] < 18.5) & (df[colname1] >= 50):
         
         return "underweightmature"
 
-    elif  df.loc[((df[colname2] >= 18.5) & (df[colname2] < 25)) & ((df[colname1] >= 21) & (df[colname1] < 50))]:
+    elif ((df[colname2] >= 18.5) & (df[colname2] < 25)) & ((df[colname1] >= 21) & (df[colname1] < 50)):
         
         return "healthymature" 
 
-    elif  df.loc[((df[colname2] >= 18.5) & (df[colname2] < 25)) & (df[colname1] >= 50)]:
+    elif ((df[colname2] >= 18.5) & (df[colname2] < 25)) & (df[colname1] >= 50):
         
         return "healthysenior"   
 
-    elif  df.loc[((df[colname2] >= 25) & (df[colname2] < 30)) & ((df[colname1] >= 21) & (df[colname1] < 50))]:
+    elif ((df[colname2] >= 25) & (df[colname2] < 30)) & ((df[colname1] >= 21) & (df[colname1] < 50)):
         
         return "overweightmature" 
 
-    elif  df.loc[((df[colname2] >= 25) & (df[colname2] < 30)) & (df[colname1] >= 50)]:
+    elif ((df[colname2] >= 25) & (df[colname2] < 30)) & (df[colname1] >= 50):
         
         return "overweightsenior" 
 
-    elif  df.loc[(df[colname2] > 18.5) & ((df[colname1] >= 21) & (df[colname1] < 50))] :
+    elif (df[colname2] > 18.5) & ((df[colname1] >= 21) & (df[colname1] < 50)) :
         
         return "obesemature" 
     
-    elif  df.loc[(df[colname2] > 18.5) & (df[colname1] >= 50)] :
+    elif (df[colname2] > 18.5) & (df[colname1] >= 50):
         
         return "obesesenior" 
 
 
+# Yaş ve Glikoz değerlerini bir arada düşünerek kategorik değişken oluşturma
+def set_age_Glucose(df, colname1="Age", colname2="Glucose"):
+
+    if (df[colname2] < 70) & ((df[colname1] >= 21) & (df[colname1] < 50)):
+
+        return "lowmature"
+
+    elif (df[colname2] < 70) & (df[colname1] >= 50):
+
+        return "lowsenior"
+
+    elif (df[colname2] < 70) & (df[colname1] >= 50):
+
+        return "lowsenior"
+
+    elif ((df[colname2] >= 70) & (df[colname2] < 100)) & ((df[colname1] >= 21) & (df[colname1] < 50)):
+
+        return "normalmature"
+
+    elif ((df[colname2] >= 70) & (df[colname2] < 100)) & (df[colname1] >= 50):
+
+        return "normalsenior"
+    
+    elif ((df[colname2] >= 100) & (df[colname2] <= 125)) & ((df[colname1] >= 21) & (df[colname1] < 50)):
+
+        return "hiddenmature"
+
+    elif ((df[colname2] >= 100) & (df[colname2] <= 125)) & (df[colname1] >= 50):
+
+        return "hiddensenior"
+
+    elif (df[colname2] > 125) & ((df[colname1] >= 21) & (df[colname1] < 50)):
+
+        return "highmature"
+
+    elif (df[colname2] > 125) & (df[colname1] >= 50):
+
+        return "highsenior"
 
 

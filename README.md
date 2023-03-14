@@ -17,6 +17,6 @@ in the <span style="color:blue">*load_export_data_nb.ipynb*</span> document and 
 >5. Analyze missing values. <span style="color:blue">*(from analyze_data import missing_value,missing_value_and_target)*</span>
 >6. Analyze outliers. <span style="color:blue">*(from analyze_data import check_outlier, replace_with_thresholds, )*</span>
 >7. Analyze correlation. <span style="color:blue">*(from analyze_data import corr_variable )*</span>
->8. Feature Extraction <span style="color:blue">*(from analyze_data import corr_variable )*</span>
+>8. Feature Extraction <span style="color:blue">*(from extract_feature import corr_variable )*</span>
 
 
